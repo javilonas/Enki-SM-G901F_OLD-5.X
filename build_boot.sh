@@ -81,7 +81,7 @@ find . -type f -name '*.py' -exec chmod 755 {} \;
 find . -type f -name '*.sh' -exec chmod 755 {} \;
 find . -type f -name '*.pl' -exec chmod 755 {} \;
 
-chmod 700 $ROOTFS_PATH/sbin/post-boot.sh
+chmod 700 $ROOTFS_PATH/init.post-boot.sh
 
 echo "#################### Deleting Previous Build ####################"
 make ARCH=arm CROSS_COMPILE=$TOOLCHAIN -j`grep 'processor' /proc/cpuinfo | wc -l` mrproper
