@@ -9,6 +9,7 @@ import /init.usb.rc
 import /init.${ro.hardware}.rc
 import /init.${ro.zygote}.rc
 import /init.trace.rc
+import /init.custom.rc
 import /init.carrier.rc
 #import /init.container.rc
 import /init.rilcarrier.rc
@@ -16,7 +17,7 @@ import /init.post-boot.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
-    write /proc/1/oom_adj -16
+    write /proc/1/oom_score_adj -1000
 
     # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
     write /sys/fs/selinux/checkreqprot 0
@@ -34,7 +35,6 @@ on early-init
     mkdir /mnt 0775 root system
 
 on init
-    export TERMINFO /system/etc/terminfo
     ffu
 sysclktz 0
 
@@ -1314,8 +1314,8 @@ on property:security.knox_kap_mode=false
     start kap_disable
 
 
-on property:ro.debuggable=1
-    start console
+#on property:ro.debuggable=1
+#    start console
 
 # adbd is controlled via property triggers in init.<platform>.usb.rc
 service adbd /sbin/adbd --root_seclabel=u:r:su:s0
@@ -1504,7 +1504,7 @@ service installd /system/bin/installd
 
 service flash_recovery /system/bin/install-recovery.sh
     class main
-    seclabel u:r:install_recovery:s0
+#    seclabel u:r:install_recovery:s0
     oneshot
 
 service racoon /system/bin/racoon

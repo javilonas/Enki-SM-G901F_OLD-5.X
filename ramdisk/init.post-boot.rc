@@ -1,17 +1,18 @@
-service supolicy /system/xbin/supolicy --live "allow adbd adbd process setcurrent" \
-	"allow adbd init process dyntransition" \
- 	"allow isolated_app init unix_stream_socket connectto"	
+service supolicy /sbin/supolicy --live \
+	"allow sensors diag_device chr_file { read write open ioctl }" \
+	"allow sensors sensors capability net_raw" \
+	"allow init kernel security setenforce"
      disabled
      oneshot
 
 on post-fs-data
      start supolicy
 
-service post-boot /sbin/post-boot.sh
-    class core
-    user root
-    group root
-    oneshot
+service post-boot /system/bin/sh /init.post-boot.sh
+     class late_start
+     user root
+     disabled
+     oneshot
 
 on property:sys.boot_completed=1
-     start post-boot.sh
+     start post-boot
