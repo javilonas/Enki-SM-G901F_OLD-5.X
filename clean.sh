@@ -99,6 +99,7 @@ rm $DIR/boot.dt.img > /dev/null 2>&1
 rm $DIR/dt.img > /dev/null 2>&1
 rm -rf $KERNELDIR/output/* > /dev/null 2>&1
 rm -rf $KERNELDIR/output/.* > /dev/null 2>&1
+rm -rf $KERNELDIR/output > /dev/null 2>&1
 
 rm -f $KERNELDIR/releasetools/tar/*.tar > /dev/null 2>&1
 rm -f $KERNELDIR/releasetools/zip/*.zip > /dev/null 2>&1
