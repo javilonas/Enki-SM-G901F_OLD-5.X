@@ -17,6 +17,9 @@ if [ ! -f /system/bin/busybox ]; then
 $BB ln -s /sbin/busybox /system/bin/busybox
 fi
 
+# KNOX Off
+/res/ext/eliminar_knox.sh
+
 # allow untrusted apps to read from debugfs
 /system/xbin/supolicy --live \
 	"allow untrusted_app debugfs file { open read getattr }" \
@@ -48,9 +51,6 @@ chmod 0755 /system/etc/init.d/*
 mount -o remount,ro -t auto /system
 fi
 
-# init.d support
-/system/xbin/busybox run-parts /system/etc/init.d
-
 # Iniciar SQlite
 /res/ext/sqlite.sh
 
@@ -60,15 +60,19 @@ fi
 # Iniciar Tweaks
 /res/ext/tweaks.sh
 
+/res/ext/smoothsystem.sh &
+$BB renice 19 `pidof smoothsystem.sh`
 
-$BB sleep 1
+$BB sleep 3
 
-# Aplicar Fstrim
-$BB /sbin/fstrim -v /data
-$BB /sbin/fstrim -v /cache
-$BB /sbin/fstrim -v /system
+/sbin/ext/killing.sh &
 
-$BB sync
+$BB sleep 2
+
+sync
+
+# init.d support
+/system/xbin/busybox run-parts /system/etc/init.d
 
 $BB mount -t rootfs -o remount,ro rootfs
 $BB mount -o remount,ro -t auto /system

@@ -17,7 +17,7 @@ import /init.post-boot.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
-    write /proc/1/oom_score_adj -1000
+    write /proc/1/oom_adj -16
 
     # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
     write /sys/fs/selinux/checkreqprot 0
@@ -89,7 +89,7 @@ loglevel 3
     mkdir /.system
     mkdir /system
     mkdir /data 0771 system system
-    mkdir /cache 0771 system cache
+    mkdir /cache 0770 system cache
     mkdir /config 0500 root root
     mkdir /efs 0771 system radio
 
@@ -233,7 +233,7 @@ on late-init
 
 on post-fs
     # once everything is setup, no need to modify /
-    mount rootfs rootfs / rw remount
+    mount rootfs rootfs / ro remount
     # mount shared so changes propagate into child namespaces
     mount rootfs rootfs / shared rec
     mount tmpfs tmpfs /mnt/secure private rec
@@ -555,9 +555,9 @@ on boot
     write /proc/sys/vm/overcommit_memory 1
     write /proc/sys/vm/min_free_order_shift 4
     chown root system /sys/module/lowmemorykiller/parameters/adj
-    chmod 0664 /sys/module/lowmemorykiller/parameters/adj
+    chmod 0220 /sys/module/lowmemorykiller/parameters/adj
     chown root system /sys/module/lowmemorykiller/parameters/minfree
-    chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
+    chmod 0220 /sys/module/lowmemorykiller/parameters/minfree
 
     # Tweak background writeout
     write /proc/sys/vm/dirty_expire_centisecs 200

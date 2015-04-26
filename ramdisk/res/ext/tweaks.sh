@@ -6,14 +6,15 @@
 BB=/sbin/busybox
 
 # CACHE AUTO CLEAN
-
 echo "3" > /proc/sys/vm/drop_caches
 
 # Miscellaneous tweaks
-echo "8" > /proc/sys/vm/page-cluster
 echo "5" > /proc/sys/vm/laptop_mode
+echo "8" > /proc/sys/vm/page-cluster
 
 echo "0" > /proc/sys/kernel/randomize_va_space
+
+echo "50" > /sys/module/zswap/parameters/max_pool_percent
 
 # Turn off debugging for certain modules
 echo "0" > /sys/module/wakelock/parameters/debug_mask

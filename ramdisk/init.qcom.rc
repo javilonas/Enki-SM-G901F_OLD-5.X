@@ -293,8 +293,8 @@ on post-fs-data
     # for WIFI MAC address
     mkdir /efs/wifi 0775 radio system
     chown system wifi /efs/wifi/.mac.info
-    chmod 0664 /efs/wifi/.mac.info
-    chmod 0664 /efs/wifi/.mac.cob
+    chmod 0660 /efs/wifi/.mac.info
+    chmod 0660 /efs/wifi/.mac.cob
 
     # for WIFI Version
     write /data/.wifiver.info 0

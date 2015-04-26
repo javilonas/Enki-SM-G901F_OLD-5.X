@@ -71,7 +71,6 @@ if [ -f /system/etc/init.qcom.sensor.sh ]; then
 fi
 
 touch /system/etc/boot_fixup
-chmod 664 /system/etc/boot_fixup
 
 if $mount_needed ;then
 # This should be the last command

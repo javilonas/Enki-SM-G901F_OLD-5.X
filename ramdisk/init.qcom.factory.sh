@@ -33,16 +33,16 @@
     chown -h bluetooth.bluetooth /proc/bluetooth/sleep/proto
     chown -h system.system /sys/module/sco/parameters/disable_esco
     chown -h bluetooth.bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod -h 0664 /sys/module/bluetooth_power/parameters/power
-    chmod -h 0664 /sys/module/hci_smd/parameters/hcismd_set
-    chmod -h 0664 /sys/class/rfkill/rfkill0/state
-    chmod -h 0664 /proc/bluetooth/sleep/proto
+    chmod -h 0660 /sys/module/bluetooth_power/parameters/power
+    chmod -h 0660 /sys/module/hci_smd/parameters/hcismd_set
+    chmod -h 0660 /sys/class/rfkill/rfkill0/state
+    chmod -h 0660 /proc/bluetooth/sleep/proto
     chown -h bluetooth.bluetooth /dev/ttyHS0
-    chmod -h 0664 /dev/ttyHS0
+    chmod -h 0660 /dev/ttyHS0
     chown -h bluetooth.bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-    chmod -h 0664 /sys/devices/platform/msm_serial_hs.0/clock
+    chmod -h 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
-    chmod -h 0664 /dev/ttyHS2
+    chmod -h 0660 /dev/ttyHS2
     chown -h bluetooth.bluetooth /dev/ttyHS2
 
     #Create QMUX deamon socket area
@@ -153,31 +153,31 @@
     chown -h system.system /sys/power/wakeup_count
     chown -h radio.system /sys/power/wake_lock
     chown -h radio.system /sys/power/wake_unlock
-    chmod -h 0664 /sys/power/state
-    chmod -h 0664 /sys/power/wake_lock
-    chmod -h 0664 /sys/power/wake_unlock
+    chmod -h 0660 /sys/power/state
+    chmod -h 0660 /sys/power/wake_lock
+    chmod -h 0660 /sys/power/wake_unlock
 
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/boost
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/boost
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/boost
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/input_boost
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
     chown -h system.system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
-    chmod -h 0664 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+    chmod -h 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
 
     # Assume SMP uses shared cpufreq policy for all CPUs
     chown -h system.system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chmod -h 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod -h 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
     chown -h system.system /sys/class/timed_output/vibrator/enable
     chown -h system.system /sys/class/leds/keyboard-backlight/brightness
