@@ -2563,7 +2563,6 @@ static int empty_dir(struct inode *inode)
 			!le32_to_cpu(de1->inode) ||
 			strcmp(".", de->name) ||
 			strcmp("..", de1->name)) {
-		print_bh(sb, bh, 0, EXT4_BLOCK_SIZE(sb));
 		ext4_warning(inode->i_sb,
 			     "bad directory (dir #%lu) - no `.' or `..'",
 			     inode->i_ino);
