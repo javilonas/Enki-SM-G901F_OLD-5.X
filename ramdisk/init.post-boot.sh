@@ -3,6 +3,20 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
+BB=/sbin/busybox
+
+# Inicio
+$BB mount -o remount,rw -t auto /system
+$BB mount -t rootfs -o remount,rw rootfs
+
+if [ ! -f /system/xbin/busybox ]; then
+$BB ln -s /sbin/busybox /system/xbin/busybox
+fi
+
+if [ ! -f /system/bin/busybox ]; then
+$BB ln -s /sbin/busybox /system/bin/busybox
+fi
+
 # allow untrusted apps to read from debugfs
 /system/xbin/supolicy --live \
 	"allow untrusted_app debugfs file { open read getattr }" \
@@ -45,4 +59,17 @@ fi
 
 # Iniciar Tweaks
 /res/ext/tweaks.sh
+
+
+$BB sleep 1
+
+# Aplicar Fstrim
+$BB /sbin/fstrim -v /data
+$BB /sbin/fstrim -v /cache
+$BB /sbin/fstrim -v /system
+
+$BB sync
+
+$BB mount -t rootfs -o remount,ro rootfs
+$BB mount -o remount,ro -t auto /system
 
