@@ -573,7 +573,7 @@ static int iwl_mvm_mac_add_interface(struct ieee80211_hw *hw,
 		ret = iwl_mvm_phy_ctxt_add(mvm, mvmvif->phy_ctxt,
 					   &chandef, 1, 1);
 		if (ret)
-			goto out_remove_mac;
+			goto out_release;
 
 		ret = iwl_mvm_binding_add_vif(mvm, vif);
 		if (ret)
