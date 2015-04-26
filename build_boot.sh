@@ -16,7 +16,7 @@ export TOOLBASE="/home/lonas/Kernel_Lonas/Enki-SM-G901F/buildtools"
 echo "#################### Preparando Entorno ####################"
 export KERNELDIR="/home/lonas/Kernel_Lonas/Enki-SM-G901F"
 
-export KERNEL_VERSION="Enki-0.3"
+export KERNEL_VERSION="Enki-0.4"
 export VERSION_KL="SM-G901F"
 export REVISION="RC"
 
