@@ -10,7 +10,7 @@ echo "#################### Eliminando Restos ####################"
 
 # Rutas
 export ROOTFS_PATH="/home/lonas/Kernel_Lonas/Enki-SM-G901F/ramdisk"
-export TOOLCHAIN="/home/lonas/Kernel_Lonas/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.7.4-2014.06/bin/arm-eabi-"
+export TOOLCHAIN="/home/lonas/Kernel_Lonas/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.03/bin/arm-eabi-"
 export TOOLBASE="/home/lonas/Kernel_Lonas/Enki-SM-G901F/buildtools"
 
 echo "#################### Preparando Entorno ####################"
@@ -22,8 +22,8 @@ export REVISION="RC"
 
 export KBUILD_BUILD_VERSION="1"
 
-#export USE_SEC_FIPS_MODE=true
-#export KCONFIG_NOTIMESTAMP=true
+export USE_SEC_FIPS_MODE=true
+export KCONFIG_NOTIMESTAMP=true
 
 export ARCH=arm
 export CROSS_COMPILE=$TOOLCHAIN

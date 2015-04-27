@@ -1,4 +1,4 @@
-CONFIG_CROSS_COMPILE="/home/lonas/Kernel_Lonas/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.7.4-2014.06/bin/arm-eabi-"
+CONFIG_CROSS_COMPILE="/home/lonas/Kernel_Lonas/toolchains/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.03/bin/arm-eabi-"
 CONFIG_LOCALVERSION="-$KERNEL_VERSION"
 # CONFIG_LOCALVERSION_AUTO is not set
 
