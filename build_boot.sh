@@ -16,14 +16,14 @@ export TOOLBASE="/home/lonas/Kernel_Lonas/Enki-SM-G901F/buildtools"
 echo "#################### Preparando Entorno ####################"
 export KERNELDIR="/home/lonas/Kernel_Lonas/Enki-SM-G901F"
 
-export KERNEL_VERSION="Enki-0.4"
+export KERNEL_VERSION="Enki-0.5"
 export VERSION_KL="SM-G901F"
 export REVISION="RC"
 
 export KBUILD_BUILD_VERSION="1"
 
-export USE_SEC_FIPS_MODE=true
-export KCONFIG_NOTIMESTAMP=true
+#export USE_SEC_FIPS_MODE=true
+#export KCONFIG_NOTIMESTAMP=true
 
 export ARCH=arm
 export CROSS_COMPILE=$TOOLCHAIN

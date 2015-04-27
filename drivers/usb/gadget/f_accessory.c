@@ -284,10 +284,6 @@ static struct usb_request *req_get(struct acc_dev *dev, struct list_head *head)
 	unsigned long flags;
 	struct usb_request *req;
 
-	/* do nothing if usb accessory device doesn't exist */
-	if (!dev)
-		return;
-
 	spin_lock_irqsave(&dev->lock, flags);
 	if (list_empty(head)) {
 		req = 0;

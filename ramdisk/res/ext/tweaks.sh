@@ -16,6 +16,9 @@ echo "0" > /proc/sys/kernel/randomize_va_space
 
 echo "50" > /sys/module/zswap/parameters/max_pool_percent
 
+# Activar dynamic FSync
+echo "1" > /sys/kernel/dyn_fsync/Dyn_fsync_active
+
 # Turn off debugging for certain modules
 echo "0" > /sys/module/wakelock/parameters/debug_mask
 echo "0" > /sys/module/userwakelock/parameters/debug_mask
