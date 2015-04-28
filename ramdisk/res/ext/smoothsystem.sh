@@ -1,4 +1,4 @@
-#!/sbin/busybox sh
+#!/system/bin/sh
 #
 
 while [ 1 ]; do

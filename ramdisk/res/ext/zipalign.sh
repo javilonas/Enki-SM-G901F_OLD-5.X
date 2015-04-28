@@ -1,9 +1,7 @@
-#!/sbin/busybox sh
+#!/system/bin/sh
 #
 # Script Zipalign by javilonas
 #
-
-BB=/sbin/busybox
 
 LOG_FILE=/data/zipalign.log;
 ZIPALIGNDB=/data/zipalign.db;
@@ -28,7 +26,7 @@ for DIR in /system/app /data/app; do
 			if [ $ZIPCHECK == "1" ]; then
 				echo "Now aligning: $DIR/$APK" | tee -a $LOG_FILE;
 				/sbin/zipalign -v -f 4 $APK /sdcard/download/$APK;
-				$BB mount -o rw,remount /system;
+				mount -o rw,remount /system;
 				cp -f -p /sdcard/download/$APK $APK;
 				grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB;
 			else
@@ -39,7 +37,7 @@ for DIR in /system/app /data/app; do
 	done;
 done;
 
-$BB mount -o ro,remount /system;
+mount -o ro,remount /system;
 touch $ZIPALIGNDB;
 echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
 
