@@ -65,7 +65,7 @@ $BB renice 19 `pidof smoothsystem.sh`
 
 $BB sleep 3
 
-/sbin/ext/killing.sh &
+/res/ext/killing.sh &
 
 $BB sleep 2
 
