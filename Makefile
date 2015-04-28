@@ -384,6 +384,8 @@ KBUILD_CPPFLAGS := -D__KERNEL__
 KBUILD_CFLAGS   := -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
 		   -Wno-format-security \
+		   -Wno-maybe-uninitialized \
+		   -Wno-sizeof-pointer-memaccess \
 		   -Wno-sequence-point \
 		   -fno-delete-null-pointer-checks \
 		   -Wno-aggressive-loop-optimizations \
