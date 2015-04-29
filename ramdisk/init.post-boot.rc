@@ -1,13 +1,3 @@
-service supolicy /sbin/supolicy --live \
-	"allow sensors diag_device chr_file { read write open ioctl }" \
-	"allow sensors sensors capability net_raw" \
-	"allow init kernel security setenforce"
-     disabled
-     oneshot
-
-on post-fs-data
-     start supolicy
-
 service post-boot /system/bin/sh /init.post-boot.sh
      class late_start
      user root
