@@ -47,9 +47,14 @@ export TARGET_GLOBAL_CPPFLAGS=-mfloat-abi=softfp
 
 export COMMON_GLOBAL_CFLAGS=-DQCOM_HARDWARE
 
+
 if [ ! -d output ]; then
         mkdir -p output
 fi
+
+cp arch/arm/configs/lonas_defconfig $KERNELDIR/output/.config
+
+. $KERNELDIR/output/.config
 
 echo "#################### Aplicando Permisos correctos ####################"
 chmod 644 $ROOTFS_PATH/*.rc
@@ -120,7 +125,9 @@ rm $KERNELDIR/output/*.img > /dev/null 2>&1
 
 echo "#################### Make defconfig ####################"
 
-make ARCH=arm CROSS_COMPILE=$TOOLCHAIN -C $(pwd) O=output apq8084_sec_defconfig VARIANT_DEFCONFIG=apq8084_sec_kccat6_eur_defconfig DEBUG_DEFCONFIG=apq8084_sec_userdebug_defconfig TIMA_DEFCONFIG=tima_defconfig DMVERITY_DEFCONFIG=dmverity_defconfig SELINUX_LOG_DEFCONFIG=selinux_log_defconfig SELINUX_DEFCONFIG=selinux_defconfig
+#make ARCH=arm CROSS_COMPILE=$TOOLCHAIN -C $(pwd) O=output apq8084_sec_defconfig VARIANT_DEFCONFIG=apq8084_sec_kccat6_eur_defconfig DEBUG_DEFCONFIG=apq8084_sec_userdebug_defconfig TIMA_DEFCONFIG=tima_defconfig DMVERITY_DEFCONFIG=dmverity_defconfig SELINUX_LOG_DEFCONFIG=selinux_log_defconfig SELINUX_DEFCONFIG=selinux_defconfig
+
+make ARCH=arm CROSS_COMPILE=$TOOLCHAIN -C $(pwd) O=output lonas_defconfig
 
 make -j`grep 'processor' /proc/cpuinfo | wc -l` ARCH=arm CROSS_COMPILE=$TOOLCHAIN -C $(pwd) O=output
 
