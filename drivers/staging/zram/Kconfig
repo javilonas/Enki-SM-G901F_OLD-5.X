@@ -16,6 +16,11 @@ config ZRAM
 	  See zram.txt for more information.
 	  Project home: <https://compcache.googlecode.com/>
 
+config ZRAM_LZ4
+	bool "LZ4 compression"
+	depends on LZ4_COMPRESS
+	depends on LZ4_DECOMPRESS
+
 config ZRAM_DEBUG
 	bool "Compressed RAM block device debug support"
 	depends on ZRAM
