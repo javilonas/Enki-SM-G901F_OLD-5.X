@@ -21,8 +21,8 @@ lib-$(CONFIG_SMP) += cpumask.o
 
 lib-y	+= kobject.o klist.o
 
-# This will compile lib/bitmap.c with -Os instead of -O2/-O3
-CFLAGS_bitmap.o += -Os
+# This will compile lib/bitmap.c with -Ofast instead of -O2/-O3
+CFLAGS_bitmap.o += -Ofast
 
 obj-y += bcd.o div64.o sort.o parser.o halfmd4.o debug_locks.o random32.o \
 	 bust_spinlocks.o hexdump.o kasprintf.o bitmap.o scatterlist.o \
