@@ -287,7 +287,7 @@ static unsigned int choose_freq(
 				 */
 				if (cpufreq_frequency_table_target(
 					    pcpu->policy, pcpu->freq_table,
-					    freqmax - 1, CPUFREQ_RELATION_C,
+					    freqmax - 1, CPUFREQ_RELATION_H,
 					    &index))
 					break;
 				freq = pcpu->freq_table[index].frequency;
