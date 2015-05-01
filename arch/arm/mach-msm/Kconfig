@@ -1566,6 +1566,14 @@ config SEC_PERIPHERAL_SECURE_CHK
         help
           To check the authentication of peripheral image.
 
+config MSM_LIMITER
+	bool "MSM Frequency Limiter Driver"
+	depends on (LCD_NOTIFY || POWERSUSPEND || HAS_EARLYSUSPEND)
+	default y
+	help
+	  The MSM Frequency Limiter Driver controls max frequency limit for each CPU
+	  to desired value on suspend/resume
+
 config MSM_CPR
 	tristate "Use MSM CPR in S/W mode"
 	help
