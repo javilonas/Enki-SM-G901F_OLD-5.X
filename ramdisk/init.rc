@@ -600,29 +600,29 @@ on boot
     chown system system /sys/class/kgsl/kgsl-3d0/dispatch/inflight
     chmod 0664  /sys/class/kgsl/kgsl-3d0/dispatch/inflight
 
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/target_loads
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/target_loads
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boost
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
-    chown system system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/timer_rate
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/timer_rate
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/timer_slack
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/timer_slack
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/min_sample_time
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/min_sample_time
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/hispeed_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/hispeed_freq
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/target_loads
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/target_loads
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/go_hispeed_load
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/go_hispeed_load
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/above_hispeed_delay
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/above_hispeed_delay
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/boost
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/boost
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/boostpulse
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/input_boost
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/input_boost
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/boostpulse_duration
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/boostpulse_duration
+    chown system system /sys/devices/system/cpu/cpufreq/barry_allen/io_is_busy
+    chmod 0660 /sys/devices/system/cpu/cpufreq/barry_allen/io_is_busy
 
 # SEC PM sysfs node
     chown system radio /sys/devices/system/soc/soc0/soc_iddq
@@ -1192,10 +1192,10 @@ on charger
     write /sys/module/msm_pm/modes/cpu1/power_collapse/idle_enabled 0
     write /sys/module/msm_pm/modes/cpu2/power_collapse/idle_enabled 0
     write /sys/module/msm_pm/modes/cpu3/power_collapse/idle_enabled 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
-    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "interactive"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "barry_allen"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "barry_allen"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "barry_allen"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "barry_allen"
 
 on property:vold.decrypt=trigger_reset_main
     class_reset main
@@ -1481,6 +1481,7 @@ service powersnd /system/bin/samsungpowersoundplay
     group system
     disabled
     oneshot
+
 service bootanim /system/bin/bootanimation
     class core
     user graphics
@@ -1669,3 +1670,4 @@ service sysprof /system/bin/sysprof -f /data/local/tmp/.sysprofctrl -o /data/loc
     group root
     disabled
     oneshot
+
