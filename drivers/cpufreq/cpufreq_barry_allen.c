@@ -2,7 +2,7 @@
  * drivers/cpufreq/cpufreq_barry_allen.c
  *
  * Copyright (C) 2010 Google, Inc.
- * opyright (C) 2015 Javier Sayago <admin@lonasdigital.com>
+ * Copyright (C) 2015 Javier Sayago <admin@lonasdigital.com>
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
