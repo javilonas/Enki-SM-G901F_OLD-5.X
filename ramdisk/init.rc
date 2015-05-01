@@ -89,7 +89,7 @@ loglevel 3
     mkdir /.system
     mkdir /system
     mkdir /data 0771 system system
-    mkdir /cache 0770 system cache
+    mkdir /cache 0771 system cache
     mkdir /config 0500 root root
     mkdir /efs 0771 system radio
 
@@ -233,7 +233,7 @@ on late-init
 
 on post-fs
     # once everything is setup, no need to modify /
-    mount rootfs rootfs / ro remount
+    mount rootfs rootfs / rw remount
     # mount shared so changes propagate into child namespaces
     mount rootfs rootfs / shared rec
     mount tmpfs tmpfs /mnt/secure private rec
