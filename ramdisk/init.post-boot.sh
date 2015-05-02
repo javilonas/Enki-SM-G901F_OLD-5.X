@@ -61,15 +61,6 @@ fi
 # Iniciar Tweaks
 /res/ext/tweaks.sh
 
-/res/ext/smoothsystem.sh &
-renice 19 `pidof smoothsystem.sh`
-
-sleep 3
-
-/res/ext/killing.sh &
-
-sleep 2
-
 sync
 
 stop thermal-engine

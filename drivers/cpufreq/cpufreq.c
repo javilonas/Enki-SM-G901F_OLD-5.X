@@ -29,6 +29,7 @@
 #include <linux/syscore_ops.h>
 #include <linux/tick.h>
 #include <trace/events/power.h>
+#include <linux/moduleparam.h>
 
 /**
  * The "cpufreq driver" - the arch- or hardware-dependent low
