@@ -1,15 +1,7 @@
 import /init.superuser.rc
 
 on init
-    export ANDROID_CACHE /cache
     export TERMINFO /system/etc/terminfo
-
-    setprop dalvik.vm.lockprof.threshold 500
-    setprop dalvik.vm.verify-bytecode false
-    setprop dalvik.vm.dexopt-flags v=n,o=v,m=y
-
-    # Run sysinit
-    start sysinit
 
 on boot
     chown system system /sys/block/mmcblk0/queue/scheduler
@@ -30,8 +22,3 @@ on boot
     echo "barry_allen" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor # CPU3
     chmod -h 0664 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
 
-# sysinit (/system/etc/init.d)
-service sysinit /system/bin/sysinit
-    user root
-    oneshot
-    disabled
