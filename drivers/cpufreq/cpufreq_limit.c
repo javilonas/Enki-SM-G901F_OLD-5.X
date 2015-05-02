@@ -29,7 +29,7 @@ static DEFINE_MUTEX(cpufreq_limit_lock);
 static LIST_HEAD(cpufreq_limit_requests);
 
 #ifdef CONFIG_SEC_PM
-static int suspend_boost = SUSPEND_BOOST;
+static int suspend_boost = 1190400;
 module_param(suspend_boost, uint, 0644);
 #endif
 
@@ -55,8 +55,8 @@ struct cpufreq_limit_handle *cpufreq_limit_get(unsigned long min_freq,
 	pr_debug("%s: %s,%lu,%lu\n", __func__, handle->label, handle->min,
 			handle->max);
 
-	handle->min = min_freq;
-	handle->max = max_freq;
+	handle->min = 0;
+	handle->max = 0;
 
 	if (strlen(label) < sizeof(handle->label))
 		strcpy(handle->label, label);
